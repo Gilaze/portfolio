@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4338ca"/>
+      <stop offset="100%" stop-color="#a5b4fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <circle cx="670" cy="90" r="140" fill="#ffffff" opacity="0.10"/>
+  <circle cx="120" cy="430" r="110" fill="#ffffff" opacity="0.10"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2">
+    <circle cx="600" cy="200" r="22"/>
+    <circle cx="650" cy="260" r="14"/>
+    <circle cx="560" cy="270" r="10"/>
+  </g>
+  <text x="48" y="400" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#ffffff">Realtime Chat</text>
+  <text x="48" y="440" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#ffffff">Platform</text>
+  <text x="48" y="64" font-family="Arial, Helvetica, sans-serif" font-size="16" letter-spacing="2" fill="#ffffff" opacity="0.8">PROJECT 01</text>
+</svg>

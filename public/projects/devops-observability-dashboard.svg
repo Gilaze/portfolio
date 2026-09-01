@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#7dd3fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <circle cx="690" cy="100" r="140" fill="#ffffff" opacity="0.10"/>
+  <circle cx="110" cy="420" r="110" fill="#ffffff" opacity="0.10"/>
+  <polyline points="540,290 570,250 600,270 630,210 660,230 690,180" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="3"/>
+  <text x="48" y="380" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#ffffff">DevOps</text>
+  <text x="48" y="422" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Observability</text>
+  <text x="48" y="464" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Dashboard</text>
+  <text x="48" y="64" font-family="Arial, Helvetica, sans-serif" font-size="16" letter-spacing="2" fill="#ffffff" opacity="0.85">PROJECT 04</text>
+</svg>
