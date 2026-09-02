@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects — Ethan Kim",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getProjects();
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
       <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">Projects</p>

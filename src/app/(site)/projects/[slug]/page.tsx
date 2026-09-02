@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, projects } from "@/data/projects";
+import { getProject, getProjectSlugs } from "@/data/projects";
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+export async function generateStaticParams() {
+  const slugs = await getProjectSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps<"/projects/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getProject(slug);
   if (!project) return {};
   return {
     title: `${project.title} — Ethan Kim`,
@@ -21,7 +22,7 @@ export async function generateMetadata({
 
 export default async function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getProject(slug);
 
   if (!project) {
     notFound();
@@ -36,13 +37,18 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         &larr; All projects
       </Link>
 
-      <div className="mt-6 overflow-hidden rounded-2xl">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={project.image}
-          alt={`${project.title} preview`}
-          className="aspect-[8/5] w-full object-cover"
-        />
+      <div
+        className="mt-6 aspect-[8/5] w-full overflow-hidden rounded-2xl"
+        style={!project.image ? { backgroundColor: project.accent } : undefined}
+      >
+        {project.image && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="h-full w-full object-cover"
+          />
+        )}
       </div>
 
       <div className="mt-8 flex flex-wrap items-start justify-between gap-4">

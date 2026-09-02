@@ -7,13 +7,18 @@ export default function FeaturedProjectCard({ project }: { project: Project }) {
       href={`/projects/${project.slug}`}
       className="group grid overflow-hidden rounded-3xl border border-black/10 bg-white transition-all hover:shadow-xl hover:shadow-black/5 sm:grid-cols-2 dark:border-white/10 dark:bg-white/5"
     >
-      <div className="aspect-[8/5] w-full overflow-hidden sm:aspect-auto">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={project.image}
-          alt={`${project.title} preview`}
-          className="h-full w-full object-cover object-left transition-transform duration-300 group-hover:scale-105"
-        />
+      <div
+        className="aspect-[8/5] w-full overflow-hidden sm:aspect-auto"
+        style={!project.image ? { backgroundColor: project.accent } : undefined}
+      >
+        {project.image && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="h-full w-full object-cover object-left transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
       </div>
       <div className="flex flex-col justify-center p-8 sm:p-10">
         <p

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import FeaturedProjectCard from "@/components/FeaturedProjectCard";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/data/projects";
 
 const skills = [
   "TypeScript",
@@ -20,7 +20,8 @@ const socials = [
   { label: "LinkedIn", href: "#" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
   const [featured, ...rest] = projects;
   const secondary = rest.slice(0, 2);
 
@@ -92,13 +93,24 @@ export default function Home() {
           </Link>
         </div>
 
-        <FeaturedProjectCard project={featured} />
-
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {secondary.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
+        {featured ? (
+          <>
+            <FeaturedProjectCard project={featured} />
+            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {secondary.map((project) => (
+                <ProjectCard key={project.slug} project={project} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <p className="text-black/50 dark:text-white/50">
+            No projects yet — add one in{" "}
+            <Link href="/studio" className="text-indigo-600 hover:underline dark:text-indigo-400">
+              the studio
+            </Link>
+            .
+          </p>
+        )}
       </section>
 
       <section className="border-t border-black/5 dark:border-white/10">
